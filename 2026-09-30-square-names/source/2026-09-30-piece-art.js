@@ -409,7 +409,9 @@
       var H = [E[0] + side * Math.sin(r2) * acfg.len[1] * st, E[1] + Math.cos(r2) * acfg.len[1] * st];
       if (chin > 0) {
         var t = chin * chin * (3 - 2 * chin);
-        if (acfg.chinS) S = [lerp(S[0], acfg.chinS[0], t), lerp(S[1], acfg.chinS[1], t)];
+        // the shoulder reaches the stem edge early, so the upper arm never sweeps across the body
+        var c3 = clamp(chin * 3, 0, 1), tS = c3 * c3 * (3 - 2 * c3);
+        if (acfg.chinS) S = [lerp(S[0], acfg.chinS[0], tS), lerp(S[1], acfg.chinS[1], tS)];
         E = [lerp(E[0], acfg.chinE[0], t), lerp(E[1], acfg.chinE[1], t)];
         H = [lerp(H[0], acfg.chinH[0], t), lerp(H[1], acfg.chinH[1], t)];
       }
@@ -479,8 +481,9 @@
         var aL = num(st.armL, 0), aR = num(st.armR, 0);
         setArm(arms.L, 'aL', armGeom(acfg.L, -1, aL, 0), true);
         var gR = armGeom(acfg.R, 1, aR, chin);
-        setArm(arms.R, 'aR', gR, chin <= 0.02);
-        setArm(front, 'aF', gR, chin > 0.02);
+        // stay on the behind-the-body arm until the arm has swung clear of the stem
+        setArm(arms.R, 'aR', gR, chin <= 0.2);
+        setArm(front, 'aF', gR, chin > 0.2);
       }
     };
     g.pieceTop = spec.top;
