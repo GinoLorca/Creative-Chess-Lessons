@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Every Square Has a Name</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(data:font/woff2;base64,/*__FONT__*/) format('woff2'); font-weight: 300 700; }
+:root {
+  --file: #1E78F0;      /* letters / files */
+  --rank: #F57A12;      /* numbers / ranks */
+  --ink: #1D2B14;
+}
+html, body { margin: 0; height: 100%; background: #0f1a0c; overflow: hidden; font-family: 'Fredoka', system-ui, sans-serif; }
+#wrap { position: fixed; inset: 0; overflow: hidden; }
+#stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; overflow: hidden; background: #8fdcfb; }
+#stage svg { position: absolute; inset: 0; width: 1920px; height: 1080px; }
+#cap { position: absolute; left: 200px; right: 200px; top: 888px; height: 168px; display: flex; align-items: center; justify-content: center;
+  text-align: center; box-sizing: border-box; padding: 0 44px; border-radius: 34px; background: rgba(255,255,255,.94);
+  box-shadow: 0 6px 0 rgba(33,74,24,.35); color: var(--ink); font-weight: 600; font-size: 54px; line-height: 1.12; letter-spacing: .2px; }
+#cap.hidden { visibility: hidden; }
+#cap .L { color: var(--file); font-weight: 700; }
+#cap .N { color: var(--rank); font-weight: 700; }
+#cap b { color: #2E7D1F; font-weight: 700; }
+/* ---- player chrome (hidden in render mode) ---- */
+.render #ui, .render #start { display: none !important; }
+#ui { position: fixed; left: 0; right: 0; bottom: 0; padding: 14px 18px; display: flex; gap: 10px; align-items: center;
+  background: linear-gradient(transparent, rgba(0,0,0,.65)); color: #fff; font: 600 16px 'Fredoka', system-ui, sans-serif;
+  opacity: 0; transition: opacity .3s; }
+#ui.show { opacity: 1; }
+#ui button { font: inherit; color: #fff; background: rgba(255,255,255,.16); border: 0; border-radius: 10px; padding: 8px 12px; cursor: pointer; min-width: 44px; min-height: 40px; }
+#ui button:hover { background: rgba(255,255,255,.3); }
+#ui button.off { opacity: .5; text-decoration: line-through; }
+#bar { flex: 1; height: 10px; background: rgba(255,255,255,.25); border-radius: 6px; position: relative; cursor: pointer; }
+#fill { position: absolute; left: 0; top: 0; bottom: 0; background: #FFD23F; border-radius: 6px; }
+#bar i { position: absolute; top: -3px; width: 3px; height: 16px; background: rgba(255,255,255,.7); border-radius: 2px; }
+#time { min-width: 96px; text-align: right; font-variant-numeric: tabular-nums; }
+#start { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+  background: rgba(10,25,8,.55); color: #fff; text-align: center; }
+#start button { font: 700 44px 'Fredoka', system-ui, sans-serif; color: #1D2B14; background: #FFD23F; border: 0; border-radius: 22px;
+  padding: 18px 56px; box-shadow: 0 7px 0 #D9A60F; cursor: pointer; }
+#start button:active { transform: translateY(4px); box-shadow: 0 3px 0 #D9A60F; }
+#start p { margin: 0; font: 500 18px 'Fredoka', system-ui, sans-serif; opacity: .9; max-width: 640px; padding: 0 16px; line-height: 1.5; }
+kbd { background: rgba(255,255,255,.2); border-radius: 5px; padding: 1px 7px; }
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"><svg id="svg" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"></svg><div id="cap"></div></div></div>
+<div id="start">
+  <button id="go" type="button">&#9654; Play</button>
+  <p><kbd>Space</kbd> pause &middot; <kbd>&larr;</kbd> <kbd>&rarr;</kbd> previous / next part &middot; <kbd>V</kbd> robot voice on/off &middot; <kbd>C</kbd> captions &middot; <kbd>F</kbd> full screen</p>
+</div>
+<div id="ui">
+  <button id="prev" type="button" title="Previous part (&larr;)">&#9198;</button>
+  <button id="play" type="button" title="Play / pause (Space)">&#9208;</button>
+  <button id="next" type="button" title="Next part (&rarr;)">&#9197;</button>
+  <div id="bar"><div id="fill"></div></div>
+  <span id="time">0:00</span>
+  <button id="voice" type="button" title="Robot voice on/off (V)">Voice</button>
+  <button id="cc" type="button" title="Captions on/off (C)">CC</button>
+  <button id="fs" type="button" title="Full screen (F)">&#x26F6;</button>
+</div>
+<audio id="aud-voice" preload="auto" src="/*__AUDIO_VOICE__*/"></audio>
+<audio id="aud-novoice" preload="auto" src="/*__AUDIO_NOVOICE__*/"></audio>
+<script>window.TIMELINE = /*__TIMELINE__*/;</script>
+<script>
+/*__PIECES__*/
+</script>
+<script>
+/*__ANIMATION__*/
+</script>
+</body>
+</html>
