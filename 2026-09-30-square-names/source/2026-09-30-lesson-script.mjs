@@ -15,45 +15,47 @@ const A = "[['eI]]"; // the letter a
 
 export const BEATS = [
   // ------------------------------------------------------------------ Hello
-  { id: 'hello', scene: 'Hello', cap: 'Hi, chess kids!', say: ['Hi, chess kids!'], pre: 0.9, min: 3.4, note: 'Opening line. The pawn hops in and waves hello to the class.' },
-  { id: 'today', scene: 'Hello', cap: "Today you'll learn something every tournament player knows.", say: ["Today you'll learn something every tournament player knows."] },
-  { id: 'hasname', scene: 'Hello', cap: 'Every square on the board has a name.', say: ['Every square on the board has a name.'], min: 3.4, note: 'A shimmer ripples across all the squares.' },
-  { id: 'yourname', scene: 'Hello', cap: 'You have a first name and a last name.', say: ['You have a first name,', 'and a last name.'], note: 'Name tag: first name in blue, last name in orange.' },
-  { id: 'squaretoo', scene: 'Hello', cap: 'Every square does too!', say: ['Every square does too!'], min: 2.6 },
+  { id: 'hello', scene: 'Hello', cap: 'Hey there, chess kids!', say: ['Hey there, chess kids!'], pre: 0.9, min: 3.4, note: 'Opening line. The pawn hops in and waves hello to the class.' },
+  { id: 'mike', scene: 'Hello', cap: 'Fun Master Mike here.', say: ['Fun Master Mike here.'], min: 2.6, note: 'Name card: Fun Master Mike.' },
+  { id: 'today', scene: 'Hello', cap: "And today we're going to be covering {L:files}, {N:ranks} and *square names*.", say: ["And today we're going to be covering", 'files,', 'ranks,', 'and square names.'], gap: 0.12, min: 5.0, note: 'FILES, RANKS and SQUARE NAMES pop up as each is said.' },
+  { id: 'what', scene: 'Hello', cap: 'What, squares have names?!', say: ['What,', 'squares have names?!'], min: 2.8, note: 'The pawn looks surprised.' },
+  { id: 'yes', scene: 'Hello', cap: 'Well, yes — in chess they do!', say: ['Well, yes!', 'In chess, they do!'], min: 3.6, note: 'A sparkle ripples across every square.' },
 
-  // ------------------------------------------------------------------ Letters and numbers
-  { id: 'letters', scene: 'Letters and numbers', cap: 'Along the bottom are letters, from {L:a} to {L:h}.', say: ['Along the bottom are letters,', `from ${A} to h.`], min: 4.5, note: 'Letters a–h pop in along the bottom edge.' },
-  { id: 'numbers', scene: 'Letters and numbers', cap: 'Up the side are numbers, from {N:1} to {N:8}.', say: ['Up the side are numbers,', 'from 1 to 8.'], min: 4.5, note: 'Numbers 1–8 pop in up the left edge.' },
-
-  // ------------------------------------------------------------------ Files
-  { id: 'filedef1', scene: 'Files', cap: 'A line of squares that goes up and down…', say: ['A line of squares that goes up and down,'], min: 2.8, note: 'A blue band grows up the a-file.' },
-  { id: 'filedef2', scene: 'Files', cap: '…is called a *file*.', say: ['is called a file.'], min: 2.4, note: 'FILE card (up and down).' },
-  { id: 'afile', scene: 'Files', cap: 'This is the {L:a}-file.', say: [`This is the ${A} file.`], note: 'The letter a lights up.' },
-  { id: 'afile2', scene: 'Files', cap: 'Every square in this line is on the {L:a}-file.', say: [`Every square in this line is on the ${A} file.`], min: 3.6, note: 'The squares a1 to a8 pulse from bottom to top.' },
-  { id: 'efile', scene: 'Files', cap: 'This is the {L:e}-file.', say: ['This is the e file.'], min: 2.6, note: 'Blue band grows up the e-file from the letter e.' },
-  { id: 'singlefile', scene: 'Files', cap: 'A file goes up and down, like a single-file line!', say: ['A file goes up and down,', 'like a single-file line!'], min: 5.2, note: 'A pawn, knight, bishop and rook march up the e-file one behind another.' },
-  { id: 'rookfile', scene: 'Files', cap: 'Watch the rook slide up and down.', say: ['Watch the rook slide up and down.'], min: 4.6, note: 'The rook slides e1 → e8 → e3 inside the blue band.' },
-  { id: 'rookfile2', scene: 'Files', cap: 'It stays on the {L:e}-file!', say: ['It stays on the e file!'] },
-  { id: 'rookside', scene: 'Files', cap: 'Now the rook slides sideways…', say: ['Now the rook slides sideways.'], min: 2.6, note: 'The rook slides e3 → c3.' },
-  { id: 'whichfile', scene: 'Files', cap: 'Which file is it on now?', say: ['Which file is it on now?', 5.6], note: '5-second chess clock.' },
-  { id: 'cfile', scene: 'Files', cap: 'The {L:c}-file!', say: ['The c file!'], min: 2.8, note: 'Blue band grows up the c-file behind the rook.' },
-
-  // ------------------------------------------------------------------ Ranks
+  // ------------------------------------------------------------------ Ranks (first!)
+  { id: 'ranksfirst', scene: 'Ranks', cap: 'First, we need to learn about ranks.', say: ['First, we need to learn about ranks.'] },
+  { id: 'rankthink', scene: 'Ranks', cap: 'You can think of ranks as floors in a building.', say: ['You can think of ranks,', 'as floors in a building.'], min: 4.6, note: 'Building card: eight floors stack up, numbered 1 at the bottom to 8 at the top.' },
+  { id: 'numbers', scene: 'Ranks', cap: 'Ranks have numbers, from {N:1} to {N:8}, going up the side.', say: ['Ranks have numbers,', 'from 1 to 8,', 'going up the side.'], min: 4.8, note: 'Numbers 1–8 pop in up the left edge of the board.' },
   { id: 'rankdef1', scene: 'Ranks', cap: 'A line of squares that goes side to side…', say: ['A line of squares that goes side to side,'], min: 2.8, note: 'An orange band grows across the first rank.' },
-  { id: 'rankdef2', scene: 'Ranks', cap: '…is called a *rank*.', say: ['is called a rank.'], min: 2.4, note: 'RANK card (side to side).' },
-  { id: 'rank1', scene: 'Ranks', cap: 'This is the first rank.', say: ['This is the first rank.'], note: 'The number 1 lights up.' },
+  { id: 'rankdef2', scene: 'Ranks', cap: '…is called a {N:rank}.', say: ['is called a rank.'], min: 2.4, note: 'RANK card (side to side).' },
+  { id: 'rank1', scene: 'Ranks', cap: 'This is the first rank, like the first floor.', say: ['This is the first rank,', 'like the first floor.'], note: 'The number 1 lights up; floor 1 of the building lights up.' },
   { id: 'rank1b', scene: 'Ranks', cap: "White's back-rank pieces start here.", say: ["White's back-rank pieces start here."], min: 3.4, note: 'Rook, knight, bishop, queen, king, bishop, knight, rook drop onto a1–h1.' },
-  { id: 'rank8', scene: 'Ranks', cap: 'This is the eighth rank.', say: ['This is the eighth rank.'], min: 2.4, note: 'Orange band grows across the eighth rank from the number 8.' },
+  { id: 'rank8', scene: 'Ranks', cap: 'This is the eighth rank, the top floor.', say: ['This is the eighth rank,', 'the top floor.'], min: 2.4, note: 'Orange band grows across the eighth rank from the number 8; floor 8 lights up.' },
   { id: 'rank8b', scene: 'Ranks', cap: "Black's back-rank pieces start here.", say: ["Black's back-rank pieces start here."], min: 3.8, note: "Black's back-rank pieces drop onto a8–h8." },
   { id: 'rookrank', scene: 'Ranks', cap: 'Watch the rook slide side to side.', say: ['Watch the rook slide side to side.'], min: 4.8, note: 'The rook appears on a4 and slides a4 → h4 → d4.' },
   { id: 'whichrank', scene: 'Ranks', cap: 'Which rank is it on?', say: ['Which rank is it on?', 5.6], note: '5-second chess clock.' },
   { id: 'rank4', scene: 'Ranks', cap: 'The fourth rank!', say: ['The fourth rank!'], min: 2.8, note: 'Orange band grows across the fourth rank from the number 4.' },
-  { id: 'chant1', scene: 'Ranks', cap: 'Stand up! Files go up and down!', say: ['Stand up!', 'Files go up and down!', 2.4], note: 'The pawn reaches up and down — students copy.' },
-  { id: 'chant2', scene: 'Ranks', cap: 'Ranks go side to side!', say: ['Ranks go side to side!', 2.4], note: 'The pawn stretches side to side — students copy.' },
+
+  // ------------------------------------------------------------------ Files
+  { id: 'filesnext', scene: 'Files', cap: "Next, let's learn about files.", say: ["Next, let's learn about files."] },
+  { id: 'letters', scene: 'Files', cap: 'Files have letters, from {L:a} to {L:h}, along the bottom.', say: ['Files have letters,', `from ${A} to h,`, 'along the bottom.'], min: 4.8, note: 'Letters a–h pop in along the bottom edge.' },
+  { id: 'filedef1', scene: 'Files', cap: 'A line of squares that goes up and down…', say: ['A line of squares that goes up and down,'], min: 2.8, note: 'A blue band grows up the a-file.' },
+  { id: 'filedef2', scene: 'Files', cap: '…is called a {L:file}.', say: ['is called a file.'], min: 2.4, note: 'FILE card (up and down).' },
+  { id: 'afile', scene: 'Files', cap: 'This is the {L:a}-file.', say: [`This is the ${A} file.`], note: 'The letter a lights up.' },
+  { id: 'afile2', scene: 'Files', cap: 'Every square in this line is on the {L:a}-file.', say: [`Every square in this line is on the ${A} file.`], min: 3.6, note: 'The squares a1 to a8 pulse from bottom to top.' },
+  { id: 'efile', scene: 'Files', cap: 'This is the {L:e}-file.', say: ['This is the e file.'], min: 2.6, note: 'Blue band grows up the e-file from the letter e.' },
+  { id: 'singlefile', scene: 'Files', cap: 'A file goes up and down, like a single-file line!', say: ['A file goes up and down,', 'like a single-file line!'], min: 5.2, note: 'A pawn, knight, bishop and rook march up the e-file one behind another.' },
+  { id: 'rookfile', scene: 'Files', cap: 'Watch the rook slide up and down.', say: ['Watch the rook slide up and down.'], min: 4.6, note: 'The rook slides e5 → e8 → e1 → e3 inside the blue band.' },
+  { id: 'rookfile2', scene: 'Files', cap: 'It stays on the {L:e}-file!', say: ['It stays on the e file!'] },
+  { id: 'rookside', scene: 'Files', cap: 'Now the rook slides sideways…', say: ['Now the rook slides sideways.'], min: 2.6, note: 'The rook slides e3 → c3.' },
+  { id: 'whichfile', scene: 'Files', cap: 'Which file is it on now?', say: ['Which file is it on now?', 5.6], note: '5-second chess clock.' },
+  { id: 'cfile', scene: 'Files', cap: 'The {L:c}-file!', say: ['The c file!'], min: 2.8, note: 'Blue band grows up the c-file behind the rook.' },
+  { id: 'chant1', scene: 'Files', cap: 'Stand up! Ranks go side to side!', say: ['Stand up!', 'Ranks go side to side!', 2.4], note: 'The pawn stretches side to side — students copy.' },
+  { id: 'chant2', scene: 'Files', cap: 'Files go up and down!', say: ['Files go up and down!', 2.4], note: 'The pawn reaches up and down — students copy.' },
 
   // ------------------------------------------------------------------ Square names
-  { id: 'bigidea', scene: 'Square names', cap: 'Now for the big idea!', say: ['Now for the big idea!'] },
-  { id: 'remember', scene: 'Square names', cap: 'Every square has a first name and a last name.', say: ['Every square has a first name,', 'and a last name.'] },
+  { id: 'bigidea', scene: 'Square names', cap: 'Now for the big idea: square names!', say: ['Now for the big idea:', 'square names!'] },
+  { id: 'yourname', scene: 'Square names', cap: 'You have a first name and a last name.', say: ['You have a first name,', 'and a last name.'], note: 'Name tag: first name in blue, last name in orange.' },
+  { id: 'squaretoo', scene: 'Square names', cap: 'Every square does too!', say: ['Every square does too!'], min: 2.6, note: "Card: a square's first name is its letter, last name is its number." },
   { id: 'cross', scene: 'Square names', cap: 'Where a file and a rank cross, you find one square.', say: ['Where a file and a rank cross,', 'you find one square.'], min: 4.2, note: 'The e-file (blue) and the fourth rank (orange) light up; the square where they cross glows.' },
   { id: 'firstname', scene: 'Square names', cap: 'Its first name is the letter: {L:e}.', say: ['Its first name is the letter:', 0.3, 'e.'], min: 3.4, note: 'A blue e tag rides up the file to the square.' },
   { id: 'lastname', scene: 'Square names', cap: 'Its last name is the number: {N:4}.', say: ['Its last name is the number:', 0.3, '4.'], min: 3.4, note: 'An orange 4 tag rides across the rank to the square.' },
@@ -108,10 +110,10 @@ export const BEATS = [
 
   // ------------------------------------------------------------------ Review
   { id: 'review', scene: 'Review', cap: "Let's review!", say: ["Let's review!"] },
-  { id: 'rv1', scene: 'Review', cap: 'Files go…', say: ['Files go', 2.2], note: 'Students answer: up and down!' },
-  { id: 'rv2', scene: 'Review', cap: '…up and down! Files have letters.', say: ['up and down!', 'Files have letters.'] },
-  { id: 'rv3', scene: 'Review', cap: 'Ranks go…', say: ['Ranks go', 2.2], note: 'Students answer: side to side!' },
-  { id: 'rv4', scene: 'Review', cap: '…side to side! Ranks have numbers.', say: ['side to side!', 'Ranks have numbers.'] },
+  { id: 'rv1', scene: 'Review', cap: 'Ranks go…', say: ['Ranks go', 2.2], note: 'Students answer: side to side!' },
+  { id: 'rv2', scene: 'Review', cap: '…side to side! Ranks have numbers.', say: ['side to side!', 'Ranks have numbers.'] },
+  { id: 'rv3', scene: 'Review', cap: 'Files go…', say: ['Files go', 2.2], note: 'Students answer: up and down!' },
+  { id: 'rv4', scene: 'Review', cap: '…up and down! Files have letters.', say: ['up and down!', 'Files have letters.'] },
   { id: 'rv5', scene: 'Review', cap: 'First name: the letter.', say: ['First name:', 'the letter.'], min: 2.8 },
   { id: 'rv6', scene: 'Review', cap: 'Last name: the number.', say: ['Last name:', 'the number.'], min: 3.2 },
   { id: 'rv7', scene: 'Review', cap: 'Square names are called *coordinates*.', say: ['Square names are called coordinates.'] },

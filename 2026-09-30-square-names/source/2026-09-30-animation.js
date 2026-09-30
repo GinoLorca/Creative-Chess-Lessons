@@ -679,6 +679,62 @@ card('sqname', g => {
   txt(l, 'last', 0, 82, 26, C.rank, 700);
   arrowPath(g, 'M-40 470 L-12 438 M40 470 L12 438', C.ink, 7);
 });
+// today's topics: files, ranks, square names
+card('topics', g => {
+  panel(g, 170, 520);
+  txt(g, 'Today', 0, 250, 50, C.ink, 600);
+  const row = (y, key, build) => {
+    const r = el('g', {}, g);
+    build(r);
+    onFrame(t => {
+      const p = V(`card.topics.${key}`, t, 0);
+      r.setAttribute('opacity', clamp(p));
+      r.setAttribute('transform', `translate(0 ${y}) scale(${Math.max(0.01, p).toFixed(3)})`);
+    });
+  };
+  row(340, 'a', r => { el('rect', { x: -170, y: -48, width: 340, height: 96, rx: 48, fill: C.file }, r); txt(r, 'FILES', 0, 20, 58, '#fff'); });
+  row(465, 'b', r => { el('rect', { x: -170, y: -48, width: 340, height: 96, rx: 48, fill: C.rank }, r); txt(r, 'RANKS', 0, 20, 58, '#fff'); });
+  row(590, 'c', r => {
+    el('rect', { x: -170, y: -48, width: 340, height: 96, rx: 48, fill: '#fff', stroke: C.ink, 'stroke-width': 5 }, r);
+    coord(r, 'e4', -122, 20, 54);
+    txt(r, 'square names', 42, 15, 34, C.ink, 700);
+  });
+});
+// ranks are like floors in a building: floor 1 at the bottom, floor 8 at the top
+card('building', g => {
+  panel(g, 150, 580);
+  txt(g, 'like floors', 0, 208, 44, C.rank, 700);
+  const FH = 50, BOT = 700, X0 = -95, BWD = 250;
+  el('path', { d: `M${X0 - 14} ${BOT - 8 * FH} L${X0 + BWD / 2} ${BOT - 8 * FH - 52} L${X0 + BWD + 14} ${BOT - 8 * FH}Z`, fill: '#5B6275', stroke: '#2B2F3A', 'stroke-width': 5, 'stroke-linejoin': 'round' }, g);
+  const floors = [];
+  for (let n = 1; n <= 8; n++) {
+    const y = BOT - n * FH;
+    const f = el('g', {}, g);
+    const wall = el('rect', { x: X0, y, width: BWD, height: FH, fill: '#FFF6E5', stroke: '#2B2F3A', 'stroke-width': 4 }, f);
+    for (let w = 0; w < 4; w++) {
+      if (n === 1 && w === 1) continue;
+      el('rect', { x: X0 + 22 + w * 58, y: y + 12, width: 30, height: 26, rx: 4, fill: '#FFE9A0', stroke: '#2B2F3A', 'stroke-width': 3 }, f);
+    }
+    if (n === 1) el('rect', { x: X0 + 78, y: y + 8, width: 34, height: FH - 8, rx: 5, fill: '#8C5A34', stroke: '#2B2F3A', 'stroke-width': 3 }, f);
+    const chip = el('circle', { cx: X0 - 42, cy: y + FH / 2, r: 21, fill: '#fff', stroke: C.rank, 'stroke-width': 4 }, f);
+    const num = txt(f, String(n), X0 - 42, y + FH / 2 + 11, 30, C.rank, 700);
+    floors.push({ f, wall, chip, num, y });
+  }
+  onFrame(t => {
+    if (V('card.building.o', t, 0) <= 0) return;
+    const hl = V('card.building.hl', t, 0);
+    floors.forEach((fl, i) => {
+      const n = i + 1, p = V(`card.building.f${n}`, t, 0), on = hl === n;
+      fl.f.setAttribute('opacity', clamp(p));
+      fl.f.setAttribute('transform', `translate(0 ${((1 - clamp(p)) * -40).toFixed(1)})`);
+      fl.wall.setAttribute('fill', on ? '#FFC98F' : '#FFF6E5');
+      fl.wall.setAttribute('stroke', on ? C.rank : '#2B2F3A');
+      fl.wall.setAttribute('stroke-width', on ? 7 : 4);
+      fl.chip.setAttribute('fill', on ? C.rank : '#fff');
+      fl.num.setAttribute('fill', on ? '#fff' : C.rank);
+    });
+  });
+});
 // both side by side (review)
 card('both', g => {
   panel(g, 110, 330);
@@ -831,6 +887,26 @@ function banner(name, t0, t1) {
     const o = V(`ban.${name}`, t, 0);
     g.setAttribute('opacity', o);
     if (o > 0) g.setAttribute('transform', `translate(${CARD_X} 100) scale(${V(`ban.${name}.s`, t, 1).toFixed(3)}) rotate(-3)`);
+  });
+}
+// the narrator's name card (lower left)
+function nameCard(t0, t1) {
+  const g = el('g', {}, overG);
+  el('rect', { x: 0, y: 8, width: 470, height: 104, rx: 30, fill: '#000', opacity: 0.25 }, g);
+  el('rect', { x: 0, y: 0, width: 470, height: 104, rx: 30, fill: '#fff', stroke: C.ink, 'stroke-width': 5 }, g);
+  el('rect', { x: 0, y: 0, width: 110, height: 104, rx: 30, fill: C.sun }, g);
+  el('rect', { x: 70, y: 0, width: 40, height: 104, fill: C.sun }, g);
+  el('rect', { x: 0, y: 0, width: 470, height: 104, rx: 30, fill: 'none', stroke: C.ink, 'stroke-width': 5 }, g);
+  // microphone
+  const m = el('g', { transform: 'translate(55 52)' }, g);
+  el('rect', { x: -13, y: -34, width: 26, height: 42, rx: 13, fill: C.ink }, m);
+  el('path', { d: 'M-22 -4 a22 22 0 0 0 44 0 M0 18 V30 M-12 30 H12', stroke: C.ink, 'stroke-width': 5, fill: 'none', 'stroke-linecap': 'round' }, m);
+  txt(g, 'Fun Master Mike', 290, 66, 46, C.ink, 700);
+  show('mikecard', t0, t1, 0.35, 0.35);
+  onFrame(t => {
+    const o = V('mikecard', t, 0);
+    g.setAttribute('opacity', o);
+    if (o > 0) g.setAttribute('transform', `translate(${(50 - (1 - o) * 80).toFixed(1)} 740)`);
   });
 }
 // "you" marker at the near edge of the board (used when the board is seen from Black's side)
