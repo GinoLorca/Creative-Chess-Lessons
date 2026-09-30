@@ -268,7 +268,7 @@ function script() {
   const plain = s => s.replace(/\{([a-h])([1-8])\}/g, '$1$2').replace(/\{[LN]:([^}]+)\}/g, '$1').replace(/\*([^*]+)\*/g, '$1');
   const lines = [];
   lines.push('# Every Square Has a Name — narration script', '');
-  lines.push('Files, ranks and square names (coordinates) for K-1 players. The full narration with timecodes, for recording your own voice or reading it live.', '');
+  lines.push('Files, ranks and square names (coordinates) for K-1 chess kids. The full narration with timecodes, for recording your own voice or reading it live.', '');
   lines.push(`**Running time:** ${fmt(tl.duration)}  `);
   lines.push('**Color code on screen:** letters / files are **blue**, numbers / ranks are **orange**.  ');
   lines.push("**Saying square names:** letter first, then number — a1 = \"ay one\", e4 = \"ee four\", f3 = \"eff three\".  ");

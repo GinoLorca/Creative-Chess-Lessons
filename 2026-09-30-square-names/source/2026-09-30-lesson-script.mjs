@@ -71,7 +71,7 @@ export const BEATS = [
   { id: 'c6down', scene: 'Square names', cap: 'One more! Look down: {L:c}.', say: ['One more!', 'Look down:', 0.5, 'c.'], min: 3.2, note: 'c6 glows; blue band runs down to c.' },
   { id: 'c6left', scene: 'Square names', cap: 'Look across: {N:6}.', say: ['Look across:', 0.5, '6.'], min: 2.8, note: 'Orange band runs across to 6.' },
   { id: 'c6name', scene: 'Square names', cap: 'This square is {c6}!', say: ['This square is c 6!'], min: 2.6 },
-  { id: 'coords', scene: 'Square names', cap: 'Chess players call square names *coordinates*.', say: ['Chess players call square names', 'coordinates.'], min: 3.4, note: 'COORDINATES card.' },
+  { id: 'coords', scene: 'Square names', cap: 'In chess, square names are called *coordinates*.', say: ['In chess, square names are called', 'coordinates.'], min: 3.4, note: 'COORDINATES card.' },
 
   // ------------------------------------------------------------------ Pieces and notation
   { id: 'pieces', scene: 'Pieces and notation', cap: 'Every piece stands on a square with a name.', say: ['Every piece stands on a square with a name.'] },
@@ -118,5 +118,5 @@ export const BEATS = [
   { id: 'rv6', scene: 'Review', cap: 'Last name: the number.', say: ['Last name:', 'the number.'], min: 3.2 },
   { id: 'rv7', scene: 'Review', cap: 'Square names are called *coordinates*.', say: ['Square names are called coordinates.'] },
   { id: 'rv8', scene: 'Review', cap: 'Now you can name every square on the board!', say: ['Now you can name every square on the board!'], min: 4.4, note: 'All 64 square names ripple onto the board.' },
-  { id: 'bye', scene: 'Review', cap: 'Great work, chess players!', say: ['Great work, chess players!'], min: 3.6 },
+  { id: 'bye', scene: 'Review', cap: 'Great work, chess kids!', say: ['Great work, chess kids!'], min: 3.6 },
 ];
