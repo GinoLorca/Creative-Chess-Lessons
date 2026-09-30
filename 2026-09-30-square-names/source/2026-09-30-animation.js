@@ -497,7 +497,7 @@ function findSquare(sq, T) {
 
 // ---------------------------------------------------------------- pieces
 const PA = window.PieceArt;
-const PIECE_SCALE = 0.84;
+const PIECE_SCALE = 0.9;
 const pieces = {};
 function piece(id, type, color, sq, t0, t1, { drop = true, pop = false, sound = true } = {}) {
   const [x, y] = sqXY(sq);
