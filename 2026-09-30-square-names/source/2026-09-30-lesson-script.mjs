@@ -71,7 +71,7 @@ export const BEATS = [
   { id: 'c6down', scene: 'Square names', cap: 'One more! Look down: {L:c}.', say: ['One more!', 'Look down:', 0.5, 'c.'], min: 3.2, note: 'c6 glows; blue band runs down to c.' },
   { id: 'c6left', scene: 'Square names', cap: 'Look across: {N:6}.', say: ['Look across:', 0.5, '6.'], min: 2.8, note: 'Orange band runs across to 6.' },
   { id: 'c6name', scene: 'Square names', cap: 'This square is {c6}!', say: ['This square is c 6!'], min: 2.6 },
-  { id: 'coords', scene: 'Square names', cap: 'In chess, square names are called *coordinates*.', say: ['In chess, square names are called', 'coordinates.'], min: 3.4, note: 'COORDINATES card.' },
+  { id: 'coords', scene: 'Square names', cap: 'Chess players call square names *coordinates*.', say: ['Chess players call square names', 'coordinates.'], min: 3.4, note: 'COORDINATES card.' },
 
   // ------------------------------------------------------------------ Pieces and notation
   { id: 'pieces', scene: 'Pieces and notation', cap: 'Every piece stands on a square with a name.', say: ['Every piece stands on a square with a name.'] },
