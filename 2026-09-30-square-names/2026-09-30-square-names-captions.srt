@@ -1,0 +1,359 @@
+1
+00:00:04,200 --> 00:00:07,960
+Hey there, chess kids!
+
+2
+00:00:07,960 --> 00:00:10,901
+Fun Master Mike here.
+
+3
+00:00:10,901 --> 00:00:17,385
+And today we're going to be covering files, ranks and square names.
+
+4
+00:00:17,385 --> 00:00:20,602
+What, squares have names?!
+
+5
+00:00:20,602 --> 00:00:24,776
+Well, yes — in chess they do!
+
+6
+00:00:24,776 --> 00:00:28,929
+First, we need to learn about ranks.
+
+7
+00:00:28,929 --> 00:00:33,857
+You can think of ranks as floors in a building.
+
+8
+00:00:33,857 --> 00:00:39,799
+Ranks have numbers, from 1 to 8, going up the side.
+
+9
+00:00:39,799 --> 00:00:43,838
+A line of squares that goes side to side…
+
+10
+00:00:43,838 --> 00:00:46,270
+…is called a rank.
+
+11
+00:00:46,270 --> 00:00:50,962
+This is the first rank, like the first floor.
+
+12
+00:00:50,962 --> 00:00:54,719
+White's back-rank pieces start here.
+
+13
+00:00:54,719 --> 00:00:58,995
+This is the eighth rank, the top floor.
+
+14
+00:00:58,995 --> 00:01:02,883
+Black's back-rank pieces start here.
+
+15
+00:01:02,883 --> 00:01:07,683
+Watch the rook slide side to side.
+
+16
+00:01:07,683 --> 00:01:15,970
+Which rank is it on?
+
+17
+00:01:15,970 --> 00:01:18,770
+The fourth rank!
+
+18
+00:01:18,770 --> 00:01:22,552
+Next, let's learn about files.
+
+19
+00:01:22,552 --> 00:01:28,085
+Files have letters, from a to h, along the bottom.
+
+20
+00:01:28,085 --> 00:01:32,275
+A line of squares that goes up and down…
+
+21
+00:01:32,275 --> 00:01:34,693
+…is called a file.
+
+22
+00:01:34,693 --> 00:01:37,265
+This is the a-file.
+
+23
+00:01:37,265 --> 00:01:41,478
+Every square in this line is on the a-file.
+
+24
+00:01:41,478 --> 00:01:44,078
+This is the e-file.
+
+25
+00:01:44,078 --> 00:01:49,405
+A file goes up and down, like a single-file line!
+
+26
+00:01:49,405 --> 00:01:54,005
+Watch the rook slide up and down.
+
+27
+00:01:54,005 --> 00:01:56,829
+It stays on the e-file!
+
+28
+00:01:56,829 --> 00:02:00,067
+Now the rook slides sideways…
+
+29
+00:02:00,067 --> 00:02:08,644
+Which file is it on now?
+
+30
+00:02:08,644 --> 00:02:11,444
+The c-file!
+
+31
+00:02:11,444 --> 00:02:18,124
+Stand up! Ranks go side to side!
+
+32
+00:02:18,124 --> 00:02:23,649
+Files go up and down!
+
+33
+00:02:23,649 --> 00:02:27,649
+Now for the big idea: square names!
+
+34
+00:02:27,649 --> 00:02:31,953
+You have a first name and a last name.
+
+35
+00:02:31,953 --> 00:02:34,816
+Every square does too!
+
+36
+00:02:34,816 --> 00:02:40,411
+Where a file and a rank cross, you find one square.
+
+37
+00:02:40,411 --> 00:02:44,510
+Its first name is the letter: e.
+
+38
+00:02:44,510 --> 00:02:48,925
+Its last name is the number: 4.
+
+39
+00:02:48,925 --> 00:02:52,661
+Put them together: e4!
+
+40
+00:02:52,661 --> 00:02:56,072
+Letter first, then number.
+
+41
+00:02:56,072 --> 00:03:02,352
+Say it with me: letter first, then number!
+
+42
+00:03:02,352 --> 00:03:07,176
+What if we say the number first: {4e}?
+
+43
+00:03:07,176 --> 00:03:12,401
+No! Letter first, then number: e4!
+
+44
+00:03:12,401 --> 00:03:15,863
+Let's try a corner square.
+
+45
+00:03:15,863 --> 00:03:20,302
+Look down. The first name is a.
+
+46
+00:03:20,302 --> 00:03:24,966
+Look across. The last name is 1.
+
+47
+00:03:24,966 --> 00:03:27,872
+This square is a1!
+
+48
+00:03:27,872 --> 00:03:32,093
+One more! Look down: c.
+
+49
+00:03:32,093 --> 00:03:35,613
+Look across: 6.
+
+50
+00:03:35,613 --> 00:03:38,765
+This square is c6!
+
+51
+00:03:38,765 --> 00:03:43,509
+Chess players call square names coordinates.
+
+52
+00:03:43,509 --> 00:03:47,866
+Every piece stands on a square with a name.
+
+53
+00:03:47,866 --> 00:03:51,569
+The white king starts on e1.
+
+54
+00:03:51,569 --> 00:03:55,351
+The black queen starts on d8.
+
+55
+00:03:55,351 --> 00:03:57,973
+Find the d-file.
+
+56
+00:03:57,973 --> 00:04:00,987
+Go up to the eighth rank.
+
+57
+00:04:00,987 --> 00:04:03,900
+There it is: d8!
+
+58
+00:04:03,900 --> 00:04:08,563
+White's pawn moves from e2 to e4.
+
+59
+00:04:08,563 --> 00:04:12,697
+In a tournament, you write down your moves.
+
+60
+00:04:12,697 --> 00:04:15,586
+That is called notation.
+
+61
+00:04:15,586 --> 00:04:20,400
+When a pawn moves, write the square it moves to.
+
+62
+00:04:20,400 --> 00:04:24,021
+This move is written e4.
+
+63
+00:04:24,021 --> 00:04:28,097
+Tournament tip! When you play Black…
+
+64
+00:04:28,097 --> 00:04:32,497
+…you sit on the other side of the board.
+
+65
+00:04:32,497 --> 00:04:35,964
+Now the a-file is on your right.
+
+66
+00:04:35,964 --> 00:04:39,632
+The eighth rank is closest to you.
+
+67
+00:04:39,632 --> 00:04:43,060
+But square names never change!
+
+68
+00:04:43,060 --> 00:04:46,460
+e4 is still e4!
+
+69
+00:04:46,460 --> 00:04:51,361
+Black's pawn moves from e7 to e5.
+
+70
+00:04:51,361 --> 00:04:56,961
+You write e5.
+
+71
+00:04:56,961 --> 00:05:09,119
+Your turn! Say this square's name out loud.
+
+72
+00:05:09,119 --> 00:05:14,882
+Look down: f. Look across: 3.
+
+73
+00:05:14,882 --> 00:05:17,482
+It's f3!
+
+74
+00:05:17,482 --> 00:05:28,088
+What is this square's name?
+
+75
+00:05:28,088 --> 00:05:33,851
+Look down: d. Look across: 7.
+
+76
+00:05:33,851 --> 00:05:36,451
+It's d7!
+
+77
+00:05:36,451 --> 00:05:49,140
+Now find b6. Point to it!
+
+78
+00:05:49,140 --> 00:05:51,758
+Find the b-file.
+
+79
+00:05:51,758 --> 00:05:54,993
+Go up to the sixth rank.
+
+80
+00:05:54,993 --> 00:05:58,184
+There it is: b6!
+
+81
+00:05:58,184 --> 00:06:00,493
+Let's review!
+
+82
+00:06:00,493 --> 00:06:04,911
+Ranks go…
+
+83
+00:06:04,911 --> 00:06:08,997
+…side to side! Ranks have numbers.
+
+84
+00:06:08,997 --> 00:06:13,240
+Files go…
+
+85
+00:06:13,240 --> 00:06:16,987
+…up and down! Files have letters.
+
+86
+00:06:16,987 --> 00:06:20,104
+First name: the letter.
+
+87
+00:06:20,104 --> 00:06:23,319
+Last name: the number.
+
+88
+00:06:23,319 --> 00:06:27,005
+Square names are called coordinates.
+
+89
+00:06:27,005 --> 00:06:31,405
+Now you can name every square on the board!
+
+90
+00:06:31,405 --> 00:06:35,005
+Great work, chess kids!
