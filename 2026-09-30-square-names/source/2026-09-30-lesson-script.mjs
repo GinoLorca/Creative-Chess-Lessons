@@ -15,7 +15,7 @@ const A = "[['eI]]"; // the letter a
 
 export const BEATS = [
   // ------------------------------------------------------------------ Hello
-  { id: 'hello', scene: 'Hello', cap: 'Hi, chess players!', say: ['Hi, chess players!'], min: 3.2, note: 'The pawn hops in and waves.' },
+  { id: 'hello', scene: 'Hello', cap: 'Hi, chess kids!', say: ['Hi, chess kids!'], pre: 0.9, min: 3.4, note: 'Opening line. The pawn hops in and waves hello to the class.' },
   { id: 'today', scene: 'Hello', cap: "Today you'll learn something every tournament player knows.", say: ["Today you'll learn something every tournament player knows."] },
   { id: 'hasname', scene: 'Hello', cap: 'Every square on the board has a name.', say: ['Every square on the board has a name.'], min: 3.4, note: 'A shimmer ripples across all the squares.' },
   { id: 'yourname', scene: 'Hello', cap: 'You have a first name and a last name.', say: ['You have a first name,', 'and a last name.'], note: 'Name tag: first name in blue, last name in orange.' },

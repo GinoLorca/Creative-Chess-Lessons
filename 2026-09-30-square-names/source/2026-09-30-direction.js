@@ -21,7 +21,7 @@ tw('board.s', 1, 0, 1.2, E.out, 0.94);
   set('host.o', 1, t);
   tw('host.y', HOST.y, t, 0.7, E.back, 1250);
   cue('pop', t + 0.3);
-  wave(t + 0.7, 3);
+  wave(st('hello') - 0.1, 3); // waves as it says "Hi, chess kids!"
   pose(T0('today'), { lx: 0, ly: 0 }, 0.4);
   // every square has a name: shimmer across the board
   FX.push({ kind: 'shimmer', t0: st('hasname') + 0.2, dur: 1.8 });
