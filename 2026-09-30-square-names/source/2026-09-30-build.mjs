@@ -5,6 +5,7 @@
 //   node 2026-09-30-build.mjs audio    sound effects + music + narration -> soundtracks
 //   node 2026-09-30-build.mjs script   teacher script with timecodes (markdown)
 //   node 2026-09-30-build.mjs render   frame-by-frame render -> MP4s (with and without voice)
+//   node 2026-09-30-build.mjs mux      re-attach rebuilt soundtracks to the last render
 //   node 2026-09-30-build.mjs all      everything, in order
 //   node 2026-09-30-build.mjs stills 12.5 40 ...   PNG stills at given seconds (for checking)
 //
@@ -244,7 +245,8 @@ async function audio() {
   const k = 1 - Math.exp(-1 / (0.12 * SR));
   for (let i = 1; i < N; i++) duck[i] = duck[i - 1] + k * (duck[i] - duck[i - 1]);
   for (let i = N - 2; i >= 0; i--) duck[i] = duck[i + 1] + k * (duck[i] - duck[i + 1]) > duck[i] ? duck[i] : duck[i + 1] + k * (duck[i] - duck[i + 1]);
-  const MUSIC = 0.14, fadeIn = 1.5 * SR, fadeOut = 3 * SR;
+  // background music is off (teacher's request); set MUSIC=0.14 to bring it back
+  const MUSIC = Number(process.env.MUSIC || 0), fadeIn = 1.5 * SR, fadeOut = 3 * SR;
   const bed = new Float32Array(N);
   for (let i = 0; i < N; i++) {
     const f = Math.min(1, i / fadeIn, (N - i) / fadeOut);
@@ -275,8 +277,8 @@ function script() {
   lines.push('**Timecodes** show when each line starts (minutes:seconds.tenths). ⏸ = built-in thinking time while students answer out loud.', '');
   lines.push('## Files in this folder', '');
   lines.push('| File | What it is |', '|---|---|');
-  lines.push('| `2026-09-30-square-names-video.mp4` | The video with the robot voice, music and sound effects |');
-  lines.push('| `2026-09-30-square-names-video-no-voice.mp4` | Same video with music and sound effects only — record your own voice over it using the timecodes below |');
+  lines.push('| `2026-09-30-square-names-video.mp4` | The video with the robot voice and sound effects (no music) |');
+  lines.push('| `2026-09-30-square-names-video-no-voice.mp4` | Same video with sound effects only — record your own voice over it using the timecodes below |');
   lines.push('| `2026-09-30-square-names-captions.srt` | Every caption with its timing; import it into your video editor to see where each line goes |');
   lines.push('| `2026-09-30-square-names-lesson.html` | Classroom player (keep the two `.m4a` files next to it). `Space` pause · `←` `→` previous / next part · `V` robot voice on/off · `C` captions · `F` full screen |');
   lines.push('| `source/` | Everything used to build the video (see the top of `source/2026-09-30-build.mjs` to rebuild) |', '');
@@ -291,7 +293,7 @@ function script() {
     if (src.note) lines.push(`<sub>On screen: ${src.note}</sub>`);
     lines.push('');
   }
-  lines.push('---', '', '*Voice: espeak-ng with the MBROLA us1 voice (placeholder robot narration). Font: Fredoka (SIL Open Font License). Music and sound effects are synthesized by the build script.*', '');
+  lines.push('---', '', '*Voice: espeak-ng with the MBROLA us1 voice (placeholder robot narration). Font: Fredoka (SIL Open Font License). Sound effects are synthesized by the build script; there is no background music.*', '');
   fs.writeFileSync(P.script, lines.join('\n'));
   // captions as subtitles (for video editors): one cue per beat, from first word to next beat
   const ts = x => { const ms = Math.round(x * 1000), h = Math.floor(ms / 3600000), m = Math.floor(ms / 60000) % 60, sec = Math.floor(ms / 1000) % 60;
@@ -332,6 +334,11 @@ async function render() {
   fs.writeFileSync(list, parts.map(p => `file '${p[2]}'`).join('\n'));
   const video = path.join(BUILD, 'video.mp4');
   run('ffmpeg', ['-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', list, '-c', 'copy', video]);
+  mux();
+}
+// put the current soundtracks onto the rendered picture (no re-render needed)
+function mux() {
+  const video = path.join(BUILD, 'video.mp4');
   for (const [wav, out] of [['full.wav', P.mp4], ['novoice.wav', P.mp4NoVoice]]) {
     run('ffmpeg', ['-v', 'error', '-y', '-i', video, '-i', path.join(BUILD, wav), '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', out]);
     console.log(`  wrote ${path.relative(LESSON, out)} (${(fs.statSync(out).size / 1e6).toFixed(1)} MB)`);
@@ -357,7 +364,7 @@ function fmt(s, tenths = false) {
 }
 
 const [cmd, ...rest] = process.argv.slice(2);
-const steps = { voice, html, audio, script, render };
+const steps = { voice, html, audio, script, render, mux };
 if (cmd === 'all') { voice(); html(); await audio(); script(); await render(); }
 else if (cmd === 'stills') await stills(rest);
 else if (steps[cmd]) await steps[cmd]();

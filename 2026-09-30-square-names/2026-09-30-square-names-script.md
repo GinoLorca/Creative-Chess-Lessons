@@ -11,8 +11,8 @@ Files, ranks and square names (coordinates) for K-1 chess kids. The full narrati
 
 | File | What it is |
 |---|---|
-| `2026-09-30-square-names-video.mp4` | The video with the robot voice, music and sound effects |
-| `2026-09-30-square-names-video-no-voice.mp4` | Same video with music and sound effects only — record your own voice over it using the timecodes below |
+| `2026-09-30-square-names-video.mp4` | The video with the robot voice and sound effects (no music) |
+| `2026-09-30-square-names-video-no-voice.mp4` | Same video with sound effects only — record your own voice over it using the timecodes below |
 | `2026-09-30-square-names-captions.srt` | Every caption with its timing; import it into your video editor to see where each line goes |
 | `2026-09-30-square-names-lesson.html` | Classroom player (keep the two `.m4a` files next to it). `Space` pause · `←` `→` previous / next part · `V` robot voice on/off · `C` captions · `F` full screen |
 | `source/` | Everything used to build the video (see the top of `source/2026-09-30-build.mjs` to rebuild) |
@@ -275,4 +275,4 @@ Files, ranks and square names (coordinates) for K-1 chess kids. The full narrati
 
 ---
 
-*Voice: espeak-ng with the MBROLA us1 voice (placeholder robot narration). Font: Fredoka (SIL Open Font License). Music and sound effects are synthesized by the build script.*
+*Voice: espeak-ng with the MBROLA us1 voice (placeholder robot narration). Font: Fredoka (SIL Open Font License). Sound effects are synthesized by the build script; there is no background music.*
